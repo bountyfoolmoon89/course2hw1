@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        Person maxim = new Person(1988, "Максим", "Минск", "бренд-менеджер");
+        Person maxim = new Person(1998, "Максим", "Минск", "бренд-менеджер");
         Person anya = new Person(1993, "Аня", "Москва", "методист образовательных программ");
         Person kate = new Person(1992, "Катя", "Калининград", "продакт-менеджер");
         Person artem = new Person(1995, "Артём", "Москва", "директор по развитию бизнеса");
