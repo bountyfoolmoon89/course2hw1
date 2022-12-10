@@ -39,7 +39,6 @@ public class Main {
         chrysanthemum.infoFlower();
         pion.infoFlower();
         gypsophila.infoFlower();
-
     }
 
     public static void printSeparator() {
