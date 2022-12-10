@@ -40,7 +40,6 @@ public class Main {
         pion.infoFlower();
         gypsophila.infoFlower();
     }
-
     public static void printSeparator() {
         System.out.println("-----------------------------------------------------------------------------------------");
     }
