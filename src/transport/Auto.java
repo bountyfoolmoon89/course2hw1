@@ -4,7 +4,7 @@ import values.ValidateUtils;
 
 import java.time.LocalDate;
 
-public class Automobile {
+public class Auto extends Transport {
 
     public static class Key {
         private final String remoteStart;
@@ -33,12 +33,7 @@ public class Automobile {
         }
     }
 
-    private final String brand;
-    private final String model;
     private double engineVolume;
-    private String color;
-    private final int year;
-    private final String country;
     private String transmission;
     private final String carBody;
     private String regNumber;
@@ -46,12 +41,8 @@ public class Automobile {
     private boolean winterTires;
     private boolean summerTires;
 
-    public Automobile(String brand, String model, int year, String country, String color, double engineVolume, String transmission, String carBody, int seats, String regNumber) {
-        this.brand = ValidateUtils.validateCarParameters(brand);
-        this.model = ValidateUtils.validateCarParameters(model);
-        this.year = ValidateUtils.validateYear(year);
-        this.country = ValidateUtils.validateCarParameters(country);
-        this.color = ValidateUtils.validateCarColor(color);
+    public Auto(String brand, String model, int year, String country, String color, double engineVolume, double maxSpeed, String transmission, String carBody, int seats, String regNumber, double fuelPercentage) {
+        super(brand, model, year, country, color, maxSpeed, fuelPercentage);
         this.engineVolume = ValidateUtils.validateDouble(engineVolume);
         this.transmission = ValidateUtils.validateCarParameters(transmission);
         this.carBody = carBody;
@@ -59,21 +50,13 @@ public class Automobile {
         this.regNumber = ValidateUtils.validateRegNumber(regNumber);
     }
 
-    public String getBrand() {
-        return brand;
+    @Override
+    public void refill() {
+        if (fuelPercentage < 50.0) {
+            System.out.println(brand + ": Требуется заправка бензином, дизелем или электричеством!");
+        }
     }
 
-    public String getModel() {
-        return model;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public String getCountry() {
-        return country;
-    }
 
     public String getCarBody() {
         return carBody;
@@ -85,10 +68,6 @@ public class Automobile {
 
     public double getEngineVolume() {
         return engineVolume;
-    }
-
-    public String getColor() {
-        return color;
     }
 
     public String getTransmission() {
@@ -113,10 +92,6 @@ public class Automobile {
 
     public void setEngineVolume(double engineVolume) {
         this.engineVolume = engineVolume;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
     }
 
     public void setTransmission(String transmission) {
@@ -144,6 +119,6 @@ public class Automobile {
     }
 
     public String toString() {
-        return brand + " " + model + ", " + year + " года выпуска. Производство: " + country + ", " + color + " цвет кузова. Объем двигателя - " + engineVolume + " л. Коробка передач: " + transmission + ". Тип кузова: " + carBody + ". Количество мест: " + seats + ". Гос. номер: " + regNumber;
+        return brand + " " + model + ", " + year + " года выпуска. Производство: " + country + ", " + color + " цвет кузова. Объем двигателя - " + engineVolume + " л. Максимальная скорость - " + maxSpeed + " км/ч. Коробка передач: " + transmission + ". Тип кузова: " + carBody + ". Количество мест: " + seats + ". Гос. номер: " + regNumber;
     }
 }

@@ -36,6 +36,7 @@ public class ValidateUtils {
             return "неверный номер";
         }
     }
+
     public static String validateInsNumber(String number){
         if (Pattern.matches("[0-9]{9}", number)){
             return number;
@@ -44,10 +45,19 @@ public class ValidateUtils {
             return "неверный номер";
         }
     }
+
     public static LocalDate checkDuration(LocalDate duration){
         if (LocalDate.now().isAfter(duration)){
             System.out.println("Страховка просрочена!");
         }
         return duration;
+    }
+
+    public static Double checkFuel(Double fuelPercentage){
+        if (fuelPercentage <= 100.00 && fuelPercentage >= 0){
+            return fuelPercentage;
+        } else {
+            return 50.0;
+        }
     }
 }
